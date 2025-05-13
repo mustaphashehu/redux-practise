@@ -4,14 +4,14 @@ import { useUpdateProductMutation } from "../app/service/dummyData";
 const UpdateProduct = () => {
     const [updateProduct, { data, error, isLoading }] = useUpdateProductMutation();
 
-    const handleUpdateProduct = async () => {
+    const handleUpdateProduct = async (theId) => {
         try {
             const updatedProductData = {
                 title: "Updated Product loo",
             };
-
+            
             await updateProduct({
-                id: 2,
+                id: theId,
                 updatedProduct: updatedProductData,
             });
         } catch (err) {
@@ -41,7 +41,7 @@ const UpdateProduct = () => {
             <h1>{data?.id}</h1>
             <h1>{data?.title}</h1>
             <h1>{data?.description}</h1>
-            <button onClick={handleUpdateProduct} disabled={isLoading}>
+            <button onClick={() => handleUpdateProduct(3)} disabled={isLoading}>
                 Update
             </button>
         </div>
