@@ -12,8 +12,19 @@ export const productsApi = createApi({
 
         getProductById: builder.query({
             query: (id) => `/products/${id}`,
+        }),
+
+        addNewProduct: builder.mutation({
+            query: (newproduct) => ({
+                url: '/products/add',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: newproduct,
+            })
         })
     })
 })
 
-export const { useGetAllProductQuery, useGetProductByIdQuery } = productsApi;
+export const { useGetAllProductQuery, useGetProductByIdQuery, useAddNewProductMutation } = productsApi;
