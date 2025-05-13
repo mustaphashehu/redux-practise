@@ -4,7 +4,7 @@ const Counter = () => {
     const count = useSelector((state) => state.counter.value);
     const dispatch = useDispatch();
     return ( 
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="">
             <h1 className="text-8xl">{count}</h1>
             <button className="text-6xl" onClick={() => dispatch(decreament())}>-</button>
             <button className="text-6xl" onClick={() => dispatch(increament())}>+</button>
